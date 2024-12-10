@@ -1,10 +1,10 @@
 import { PureComponent } from 'react';
 import { Card } from './card/card';
-import { getAnimal } from '../API/StAPI';
+import { getAnimal, getAnimals } from '../API/StAPI';
 import { Animal } from '../interfaces/interfaces';
 
 interface Props {
-  request: string;
+  request?: string;
 }
 
 interface State {
@@ -28,14 +28,17 @@ export class SearchResult extends PureComponent<Props> {
   }
 
   loader = async () => {
-    const res = await getAnimal(this.props.request);
+    this.setState({ searchResult: null });
+    const res = this.props.request
+      ? await getAnimal(this.props.request)
+      : await getAnimals();
     this.setState({ searchResult: res.animals });
   };
 
   render() {
     return (
       <>
-        <h1>результат поиска </h1>
+        <h1>{this.props.request ? 'результат поиска' : 'Каталог'} </h1>
         <section className="search-result">
           {' '}
           {this.state.searchResult === null ? (

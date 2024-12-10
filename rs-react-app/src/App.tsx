@@ -4,7 +4,7 @@ import './App.css';
 import { Search } from './components/search/search';
 import { LSAPI } from './components/API/LSAPI';
 import { SearchResult } from './components/searchResult/searchResult';
-import { Catalog } from './components/catalog/catalog';
+//import { Catalog } from './components/catalog/catalog';
 
 export class App extends PureComponent {
   state = {
@@ -43,11 +43,11 @@ export class App extends PureComponent {
           onChange={this.onChange}
           onClick={this.onClick}
         />
-        {!this.state.searchRequest ? (
+        {/* {!this.state.searchRequest ? (
           <Catalog />
-        ) : (
-          <SearchResult request={this.state.searchRequest} />
-        )}
+        ) : ( */}
+        <SearchResult request={this.state.searchRequest} />
+        {/* //    )} */}
       </>
     );
   }
