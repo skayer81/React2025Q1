@@ -7,7 +7,7 @@ import { SearchResult } from './components/searchResult/searchResult';
 export class App extends PureComponent {
   state = {
     // inputValue: '',
-    searchRequest: '',
+    searchRequest: null,
   };
 
   //loadSaveRequest = new LSAPI();
@@ -37,7 +37,11 @@ export class App extends PureComponent {
           //   onChange={this.onChange}
           onClick={this.onClick}
         />
-        <SearchResult request={this.state.searchRequest} />
+        {this.state.searchRequest !== null ? (
+          <SearchResult request={this.state.searchRequest} />
+        ) : (
+          ''
+        )}
       </>
     );
   }
