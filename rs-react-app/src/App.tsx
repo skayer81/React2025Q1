@@ -1,10 +1,8 @@
 import { PureComponent } from 'react';
 import './App.css';
-
 import { SearchForm } from './components/search/searchForm';
 import { LSAPI } from './components/API/LSAPI';
 import { SearchResult } from './components/searchResult/searchResult';
-//import { Catalog } from './components/catalog/catalog';
 
 export class App extends PureComponent {
   state = {
@@ -12,12 +10,7 @@ export class App extends PureComponent {
     searchRequest: '',
   };
 
-  loadSaveRequest: LSAPI;
-
-  constructor() {
-    super({});
-    this.loadSaveRequest = new LSAPI();
-  }
+  loadSaveRequest = new LSAPI();
 
   componentDidMount() {
     if (this.loadSaveRequest.hasSave()) {
@@ -43,11 +36,7 @@ export class App extends PureComponent {
           onChange={this.onChange}
           onClick={this.onClick}
         />
-        {/* {!this.state.searchRequest ? (
-          <Catalog />
-        ) : ( */}
         <SearchResult request={this.state.searchRequest} />
-        {/* //    )} */}
       </>
     );
   }
