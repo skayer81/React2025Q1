@@ -2,24 +2,44 @@ import { Component } from 'react';
 import { Input } from './input/input';
 import { Button } from './button/button';
 import { ErrorButton } from '../errorButton/errorButton';
+import { LSAPI } from '../API/LSAPI';
 
 interface Props {
-  inputValue: string;
-  onChange: (value: string) => void;
-  onClick: () => void;
+  // inputValue: string;
+  // onChange: (value: string) => void;
+  onClick: (value: string) => void;
 }
 
 export class SearchForm extends Component<Props> {
   ButtonText = 'Поиск';
+  loadSaveRequest = new LSAPI();
+
+  state = {
+    inputValue: '',
+    //  searchRequest: '',
+  };
+
+  componentDidMount() {
+    if (this.loadSaveRequest.hasSave()) {
+      const request = this.loadSaveRequest.loadRequest();
+      this.setState({ inputValue: request });
+    }
+  }
+
+  onChange = (value: string) => {
+    this.setState({ inputValue: value });
+  };
+
+  onClick = () => {
+    this.loadSaveRequest.saveRequest(this.state.inputValue);
+    this.props.onClick(this.state.inputValue);
+  };
 
   render() {
     return (
       <form>
-        <Input
-          inputValue={this.props.inputValue}
-          onChange={this.props.onChange}
-        />
-        <Button onClick={this.props.onClick} buttonText={this.ButtonText} />
+        <Input inputValue={this.state.inputValue} onChange={this.onChange} />
+        <Button onClick={this.onClick} buttonText={this.ButtonText} />
         <ErrorButton />
       </form>
     );
