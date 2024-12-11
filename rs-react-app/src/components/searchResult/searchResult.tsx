@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Card } from './card/card';
 import { getAnimal, getAnimals } from '../API/StAPI';
 import { Animal } from '../interfaces/interfaces';
@@ -9,15 +9,18 @@ interface Props {
 
 interface State {
   searchResult: Array<Animal> | null;
+  loading: boolean;
+  error: string | null;
 }
 
-export class SearchResult extends PureComponent<Props> {
+export class SearchResult extends PureComponent<Props, State> {
   state: State = {
     searchResult: null,
+    loading: false,
+    error: null,
   };
 
-  constructor(props: Props) {
-    super(props);
+  componentDidMount() {
     this.loader();
   }
 
@@ -28,29 +31,38 @@ export class SearchResult extends PureComponent<Props> {
   }
 
   loader = async () => {
-    this.setState({ searchResult: null });
-    const res = this.props.request
-      ? await getAnimal(this.props.request)
-      : await getAnimals();
-    this.setState({ searchResult: res.animals });
+    this.setState({ loading: true, searchResult: null, error: null });
+    try {
+      const res = this.props.request
+        ? await getAnimal(this.props.request)
+        : await getAnimals();
+      this.setState({ searchResult: res.animals });
+    } catch (err) {
+      this.setState({ error: 'Ошибка при загрузке данных' });
+      console.log(err);
+    } finally {
+      this.setState({ loading: false });
+    }
   };
 
   render() {
+    const { request } = this.props;
+    const { searchResult, loading, error } = this.state;
+
     return (
       <>
-        <h1>{this.props.request ? 'результат поиска' : 'Каталог'} </h1>
+        <h1>{request ? 'Результат поиска' : 'Каталог'}</h1>
         <section className="search-result">
-          {this.state.searchResult === null ? (
-            <p>ждём</p>
-          ) : (
+          {loading && <p>Загрузка...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !searchResult && <p>Нет результатов</p>}
+          {searchResult && (
             <ul>
-              {this.state.searchResult.map((elem, index) => {
-                return (
-                  <li key={index}>
-                    <Card index={index + 1} name={elem.name} />
-                  </li>
-                );
-              })}
+              {searchResult.map((elem, index) => (
+                <li key={index}>
+                  <Card index={index + 1} name={elem.name} />
+                </li>
+              ))}
             </ul>
           )}
         </section>

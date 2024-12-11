@@ -23,6 +23,7 @@ export class SearchForm extends Component<Props> {
     if (this.loadSaveRequest.hasSave()) {
       const request = this.loadSaveRequest.loadRequest();
       this.setState({ inputValue: request });
+      this.props.onClick(request);
     }
   }
 
