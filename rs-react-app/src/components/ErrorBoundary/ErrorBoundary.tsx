@@ -15,7 +15,6 @@ export class ErrorBoundary extends Component<Props> {
       error: error,
       errorInfo: errorInfo,
     });
-    console.log('errorInfo', errorInfo);
   };
 
   render() {

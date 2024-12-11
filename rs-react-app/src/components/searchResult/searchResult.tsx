@@ -21,25 +21,17 @@ export class SearchResult extends PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    console.log('componentDidMount loader');
     this.loader();
   }
 
   componentDidUpdate(prevProps: Props) {
-    console.log(
-      'componentDidUpdate props:',
-      prevProps.request,
-      this.props.request
-    );
     if (this.props.request !== prevProps.request) {
-      console.log('componentDidUpdate loader');
       this.loader();
     }
   }
 
   loader = async () => {
     this.setState({ loading: true, error: null });
-    console.log('props loader', this.props.request);
     try {
       const res = this.props.request
         ? await getAnimal(this.props.request)
@@ -57,8 +49,6 @@ export class SearchResult extends PureComponent<Props, State> {
   render() {
     const { request } = this.props;
     const { searchResult, loading, error } = this.state;
-
-    console.log('Текущее состояние searchResult:', searchResult);
 
     return (
       <>

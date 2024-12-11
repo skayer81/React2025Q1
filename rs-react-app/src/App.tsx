@@ -9,7 +9,6 @@ export class App extends PureComponent {
   };
 
   onClick = (value: string) => {
-    console.log(value);
     this.setState({ searchRequest: value });
   };
 
