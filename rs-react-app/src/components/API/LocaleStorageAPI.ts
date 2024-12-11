@@ -1,4 +1,4 @@
-export class LSAPI {
+export class LocaleStorageAPI {
   #FIELD_NAME = 'skayer81ReactLS';
 
   saveRequest(request: string) {

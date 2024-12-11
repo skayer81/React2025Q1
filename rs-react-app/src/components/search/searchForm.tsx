@@ -2,23 +2,23 @@ import { Component } from 'react';
 import { Input } from './input/input';
 import { Button } from './button/button';
 import { ErrorButton } from '../errorButton/errorButton';
-import { LSAPI } from '../API/LSAPI';
+import { LocaleStorageAPI } from '../API/LocaleStorageAPI';
 
 interface Props {
   onClick: (value: string) => void;
 }
 
 export class SearchForm extends Component<Props> {
-  ButtonText = 'Поиск';
-  loadSaveRequest = new LSAPI();
+  ButtonText = 'Search';
+  LocaleStorageAPI = new LocaleStorageAPI();
 
   state = {
     inputValue: '',
   };
 
   componentDidMount() {
-    if (this.loadSaveRequest.hasSave()) {
-      const request = this.loadSaveRequest.loadRequest();
+    if (this.LocaleStorageAPI.hasSave()) {
+      const request = this.LocaleStorageAPI.loadRequest();
       this.setState({ inputValue: request });
       this.props.onClick(request);
     }
@@ -29,7 +29,7 @@ export class SearchForm extends Component<Props> {
   };
 
   onClick = () => {
-    this.loadSaveRequest.saveRequest(this.state.inputValue);
+    this.LocaleStorageAPI.saveRequest(this.state.inputValue);
     this.props.onClick(this.state.inputValue);
   };
 

@@ -9,8 +9,8 @@ export class Card extends Component<Props> {
   render() {
     return (
       <article className="card">
-        <p>Карточка №{this.props.index} </p>
-        <p>Имя: {this.props.name}</p>
+        <p>Card №{this.props.index} </p>
+        <p>Name: {this.props.name}</p>
       </article>
     );
   }

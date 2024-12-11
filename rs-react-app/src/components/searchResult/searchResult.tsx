@@ -39,7 +39,7 @@ export class SearchResult extends PureComponent<Props, State> {
 
       this.setState({ searchResult: res.animals });
     } catch (err) {
-      this.setState({ error: 'Ошибка при загрузке данных' });
+      this.setState({ error: 'Error loading data' });
       console.log(err);
     } finally {
       this.setState({ loading: false });
@@ -52,12 +52,12 @@ export class SearchResult extends PureComponent<Props, State> {
 
     return (
       <>
-        <h1>{request ? 'Результат поиска' : 'Каталог'}</h1>
+        <h1>{request ? 'Search result' : 'full catalog'}</h1>
         <section className="search-result">
-          {loading && <p>Загрузка...</p>}
+          {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
           {!loading && searchResult && searchResult.length === 0 && (
-            <p>Нет результатов</p>
+            <p>nothing found</p>
           )}
           {searchResult && searchResult.length > 0 && (
             <ul>
