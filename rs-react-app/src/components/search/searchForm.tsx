@@ -9,19 +9,19 @@ interface Props {
   onClick: () => void;
 }
 
-export class Search extends Component<Props> {
+export class SearchForm extends Component<Props> {
   ButtonText = 'Поиск';
 
   render() {
     return (
-      <>
+      <form>
         <Input
           inputValue={this.props.inputValue}
           onChange={this.props.onChange}
         />
         <Button onClick={this.props.onClick} buttonText={this.ButtonText} />
         <ErrorButton />
-      </>
+      </form>
     );
   }
 }

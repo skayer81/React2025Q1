@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import './App.css';
 
-import { Search } from './components/search/search';
+import { SearchForm } from './components/search/searchForm';
 import { LSAPI } from './components/API/LSAPI';
 import { SearchResult } from './components/searchResult/searchResult';
 //import { Catalog } from './components/catalog/catalog';
@@ -38,7 +38,7 @@ export class App extends PureComponent {
   render() {
     return (
       <>
-        <Search
+        <SearchForm
           inputValue={this.state.inputValue}
           onChange={this.onChange}
           onClick={this.onClick}
