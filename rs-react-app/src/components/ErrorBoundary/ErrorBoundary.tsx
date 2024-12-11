@@ -5,10 +5,17 @@ interface Props {
 }
 
 export class ErrorBoundary extends Component<Props> {
-  state = {
+  initState = {
     error: null,
     errorInfo: null,
   };
+
+  state = {
+    ...this.initState,
+  };
+
+  buttonText = 'return everything as it was';
+  titleText = 'Something went wrong';
 
   componentDidCatch = (error: Error, errorInfo: ErrorInfo) => {
     this.setState({
@@ -19,7 +26,18 @@ export class ErrorBoundary extends Component<Props> {
 
   render() {
     if (this.state.errorInfo) {
-      return <h1>Something went wrong</h1>;
+      return (
+        <>
+          <h1>{this.titleText}</h1>
+          <button
+            onClick={() => {
+              this.setState({ ...this.initState });
+            }}
+          >
+            {this.buttonText}
+          </button>
+        </>
+      );
     }
     return this.props.children;
   }
