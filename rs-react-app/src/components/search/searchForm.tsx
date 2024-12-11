@@ -5,8 +5,6 @@ import { ErrorButton } from '../errorButton/errorButton';
 import { LSAPI } from '../API/LSAPI';
 
 interface Props {
-  // inputValue: string;
-  // onChange: (value: string) => void;
   onClick: (value: string) => void;
 }
 
@@ -16,7 +14,6 @@ export class SearchForm extends Component<Props> {
 
   state = {
     inputValue: '',
-    //  searchRequest: '',
   };
 
   componentDidMount() {
