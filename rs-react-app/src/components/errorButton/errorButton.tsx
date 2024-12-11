@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 export class ErrorButton extends Component {
-  ButtonText = 'создать ошибку';
+  ButtonText = 'create rendering error';
 
   state = {
     isError: false,
@@ -13,7 +13,7 @@ export class ErrorButton extends Component {
 
   render() {
     if (this.state.isError) {
-      throw new Error('Упс, что то пошло не так(');
+      throw new Error('Something went wrong');
     }
     return (
       <>
