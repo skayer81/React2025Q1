@@ -40,13 +40,18 @@ export class SearchResult extends PureComponent<Props> {
       <>
         <h1>{this.props.request ? 'результат поиска' : 'Каталог'} </h1>
         <section className="search-result">
-          {' '}
           {this.state.searchResult === null ? (
             <p>ждём</p>
           ) : (
-            this.state.searchResult.map((elem, index) => {
-              return <Card index={index + 1} name={elem.name} key={index} />;
-            })
+            <ul>
+              {this.state.searchResult.map((elem, index) => {
+                return (
+                  <li key={index}>
+                    <Card index={index + 1} name={elem.name} />
+                  </li>
+                );
+              })}
+            </ul>
           )}
         </section>
       </>
