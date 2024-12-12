@@ -17,7 +17,9 @@ export class ErrorButton extends Component {
     }
     return (
       <>
-        <button onClick={this.onClick}>{this.ButtonText}</button>
+        <button onClick={this.onClick} type="button">
+          {this.ButtonText}
+        </button>
       </>
     );
   }
