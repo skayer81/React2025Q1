@@ -1,4 +1,5 @@
 import { Component, ErrorInfo } from 'react';
+import './ErrorBoundary.css';
 
 interface Props {
   children: JSX.Element;
@@ -28,8 +29,9 @@ export class ErrorBoundary extends Component<Props> {
     if (this.state.errorInfo) {
       return (
         <>
-          <h1>{this.titleText}</h1>
+          <h1 className="error-boundary">{this.titleText}</h1>
           <button
+            className="error-boundary__back-button"
             onClick={() => {
               this.setState({ ...this.initState });
             }}
