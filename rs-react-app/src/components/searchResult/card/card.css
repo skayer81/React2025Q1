@@ -1,12 +1,12 @@
-.card{
-    border: 1px solid blue;
-    border-radius: 20px;
-    width: 200px;
-    height: 100px;
-    padding: 10px;
-    .number, .title{
-        font-size: 17px;
-        margin: 0;
-    }
-    
+.card {
+  border: 1px solid blue;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  .number,
+  .title {
+    font-size: 17px;
+    margin: 0;
+  }
 }

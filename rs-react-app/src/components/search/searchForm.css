@@ -1,11 +1,11 @@
-.form{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    .form-title{
-        padding-top: 7px;
-    }
-    .form-input{
-        border-radius: 10px;
-    }
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  .form-title {
+    padding-top: 7px;
+  }
+  .form-input {
+    border-radius: 10px;
+  }
 }
