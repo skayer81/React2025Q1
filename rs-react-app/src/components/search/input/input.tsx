@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './../searchForm.css';
 
 interface Props {
   onChange: (inputValue: string) => void;
@@ -6,6 +7,8 @@ interface Props {
 }
 
 export class Input extends Component<Props> {
+  placeholderText = 'Enter a search term';
+
   onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target) return;
     this.props.onChange(event.target.value);
@@ -18,6 +21,8 @@ export class Input extends Component<Props> {
           type="text"
           onChange={this.onChange}
           defaultValue={this.props.inputValue}
+          className="form-input"
+          placeholder={this.placeholderText}
         ></input>
       </>
     );

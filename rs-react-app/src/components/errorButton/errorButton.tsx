@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 export class ErrorButton extends Component {
-  ButtonText = 'create rendering error';
+  ButtonText = 'Create rendering error';
 
   state = {
     isError: false,
