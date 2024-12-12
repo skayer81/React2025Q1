@@ -68,7 +68,7 @@ export class SearchResult extends PureComponent<Props, State> {
                   <Card
                     index={index + 1}
                     name={elem.name}
-                    isFeline={elem.feline}
+                    earthAnimal={elem.earthAnimal}
                   />
                 </li>
               ))}

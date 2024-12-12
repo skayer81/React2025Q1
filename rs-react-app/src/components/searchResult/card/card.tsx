@@ -3,13 +3,13 @@ import './card.css';
 
 interface Props {
   name: string;
-  isFeline: boolean;
+  earthAnimal: boolean;
   index: number;
 }
 
 export class Card extends Component<Props> {
-  isFelineDescription = 'maybe you can pet it';
-  isNotFelineDescription = 'not feline';
+  isEarthAnimalDescription = 'lives on Earth';
+  isNotEarthAnimalDescription = 'lives in a galaxy far, far away';
 
   render() {
     return (
@@ -18,9 +18,9 @@ export class Card extends Component<Props> {
         <h3 className="title">Name: {this.props.name}</h3>
         <p>
           Description:{' '}
-          {this.props.isFeline
-            ? this.isFelineDescription
-            : this.isNotFelineDescription}
+          {this.props.earthAnimal
+            ? this.isEarthAnimalDescription
+            : this.isNotEarthAnimalDescription}
         </p>
       </article>
     );
