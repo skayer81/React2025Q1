@@ -55,7 +55,7 @@ export class SearchResult extends PureComponent<Props, State> {
     return (
       <>
         <section className="search-result">
-          <h1>{request ? 'Search result' : 'Full catalog'}</h1>
+          <h2>{request ? 'Search result' : 'Full catalog'}</h2>
 
           {error && <p>{error}</p>}
           {!loading && searchResult && searchResult.length === 0 && (
@@ -64,8 +64,12 @@ export class SearchResult extends PureComponent<Props, State> {
           {searchResult && searchResult.length > 0 && (
             <ul className="list-items">
               {searchResult.map((elem, index) => (
-                <li key={index}>
-                  <Card index={index + 1} name={elem.name} />
+                <li key={elem.uid}>
+                  <Card
+                    index={index + 1}
+                    name={elem.name}
+                    isFeline={elem.feline}
+                  />
                 </li>
               ))}
             </ul>
