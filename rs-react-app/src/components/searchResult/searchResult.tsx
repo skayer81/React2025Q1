@@ -2,6 +2,7 @@ import { PureComponent } from 'react';
 import { Card } from './card/card';
 import { getAnimal, getAnimals } from '../API/StAPI';
 import { Animal } from '../interfaces/interfaces';
+import './searchResult.css';
 
 interface Props {
   request?: string;
@@ -52,15 +53,15 @@ export class SearchResult extends PureComponent<Props, State> {
 
     return (
       <>
-        <h1>{request ? 'Search result' : 'full catalog'}</h1>
         <section className="search-result">
+          <h1>{request ? 'Search result' : 'Full catalog'}</h1>
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
           {!loading && searchResult && searchResult.length === 0 && (
             <p>nothing found</p>
           )}
           {searchResult && searchResult.length > 0 && (
-            <ul>
+            <ul className="list-items">
               {searchResult.map((elem, index) => (
                 <li key={index}>
                   <Card index={index + 1} name={elem.name} />

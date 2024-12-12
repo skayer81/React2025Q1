@@ -5,6 +5,7 @@ import { App } from './App.tsx';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary.tsx';
 
 const root = document.createElement('div');
+root.classList.add('root');
 document.body.appendChild(root);
 
 ReactDOM.createRoot(root).render(
