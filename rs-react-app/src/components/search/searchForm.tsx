@@ -11,15 +11,15 @@ interface Props {
 
 export class SearchForm extends Component<Props> {
   ButtonText = 'Search';
-  LocaleStorageAPI = new LocaleStorageAPI();
+  localeStorageAPI = new LocaleStorageAPI();
 
   state = {
     inputValue: '',
   };
 
   componentDidMount() {
-    if (this.LocaleStorageAPI.hasSave()) {
-      const request = this.LocaleStorageAPI.loadRequest();
+    if (this.localeStorageAPI.hasSave()) {
+      const request = this.localeStorageAPI.loadRequest();
       this.setState({ inputValue: request });
       this.props.onClick(request);
     }
@@ -30,7 +30,7 @@ export class SearchForm extends Component<Props> {
   };
 
   onClick = () => {
-    this.LocaleStorageAPI.saveRequest(this.state.inputValue);
+    this.localeStorageAPI.saveRequest(this.state.inputValue);
     this.props.onClick(this.state.inputValue);
   };
 

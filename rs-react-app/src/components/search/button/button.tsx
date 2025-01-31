@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 interface Props {
-  onClick: () => void;
+  onClick: VoidFunction;
   buttonText: string;
 }
 

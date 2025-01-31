@@ -11,10 +11,6 @@ export class LocaleStorageAPI {
   }
 
   hasSave() {
-    if (localStorage.getItem(this.#FIELD_NAME) !== null) {
-      return true;
-    } else {
-      return false;
-    }
+    return localStorage.getItem(this.#FIELD_NAME) !== null;
   }
 }

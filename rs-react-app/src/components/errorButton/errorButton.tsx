@@ -1,8 +1,6 @@
 import { Component } from 'react';
 
 export class ErrorButton extends Component {
-  ButtonText = 'Create rendering error';
-
   state = {
     isError: false,
   };
@@ -16,11 +14,9 @@ export class ErrorButton extends Component {
       throw new Error('Something went wrong');
     }
     return (
-      <>
-        <button onClick={this.onClick} type="button">
-          {this.ButtonText}
-        </button>
-      </>
+      <button onClick={this.onClick} type="button">
+        {'Create rendering error'}
+      </button>
     );
   }
 }

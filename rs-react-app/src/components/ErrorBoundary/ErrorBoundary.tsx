@@ -15,9 +15,6 @@ export class ErrorBoundary extends Component<Props> {
     ...this.initState,
   };
 
-  buttonText = 'return everything as it was';
-  titleText = 'Something went wrong';
-
   componentDidCatch = (error: Error, errorInfo: ErrorInfo) => {
     this.setState({
       error: error,
@@ -29,14 +26,14 @@ export class ErrorBoundary extends Component<Props> {
     if (this.state.errorInfo) {
       return (
         <>
-          <h1 className="error-boundary">{this.titleText}</h1>
+          <h1 className="error-boundary">{'Something went wrong'}</h1>
           <button
             className="error-boundary__back-button"
             onClick={() => {
               this.setState({ ...this.initState });
             }}
           >
-            {this.buttonText}
+            {'return everything as it was'}
           </button>
         </>
       );

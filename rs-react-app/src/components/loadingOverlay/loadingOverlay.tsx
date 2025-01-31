@@ -8,14 +8,13 @@ interface Props {
 
 export class LoadingOverlay extends Component<Props> {
   render() {
+    if (!this.props.isLoading) {
+      return null;
+    }
     return (
-      <>
-        {this.props.isLoading && (
-          <div className="overlay">
-            <p>{this.props.message}</p>
-          </div>
-        )}
-      </>
+      <div className="overlay">
+        <p>{this.props.message}</p>
+      </div>
     );
   }
 }

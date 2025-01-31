@@ -23,16 +23,16 @@ export class SearchResult extends PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    this.loader();
+    this.load();
   }
 
   componentDidUpdate(prevProps: Props) {
     if (this.props.request !== prevProps.request) {
-      this.loader();
+      this.load();
     }
   }
 
-  loader = async () => {
+  load = async () => {
     this.setState({ loading: true, error: null });
     try {
       const res = this.props.request
@@ -63,12 +63,12 @@ export class SearchResult extends PureComponent<Props, State> {
           )}
           {searchResult && searchResult.length > 0 && (
             <ul className="list-items">
-              {searchResult.map((elem, index) => (
-                <li key={elem.uid}>
+              {searchResult.map((animal, index) => (
+                <li key={animal.uid}>
                   <Card
                     index={index + 1}
-                    name={elem.name}
-                    earthAnimal={elem.earthAnimal}
+                    name={animal.name}
+                    earthAnimal={animal.earthAnimal}
                   />
                 </li>
               ))}
