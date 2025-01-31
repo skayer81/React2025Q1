@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import './card.css';
+import style from './card.module.css';
 
 interface Props {
   name: string;
@@ -13,9 +13,9 @@ export class Card extends Component<Props> {
 
   render() {
     return (
-      <article className="card">
-        <p className="number">Card № {this.props.index} </p>
-        <h3 className="title">Name: {this.props.name}</h3>
+      <article className={style.card}>
+        <p className={style.number}>Card № {this.props.index} </p>
+        <h3 className={style.title}>Name: {this.props.name}</h3>
         <p>
           Description:{' '}
           {this.props.earthAnimal

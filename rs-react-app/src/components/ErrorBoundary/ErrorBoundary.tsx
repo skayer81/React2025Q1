@@ -1,5 +1,5 @@
 import { Component, ErrorInfo } from 'react';
-import './ErrorBoundary.css';
+import style from './ErrorBoundary.module.css';
 
 interface Props {
   children: JSX.Element;
@@ -26,9 +26,9 @@ export class ErrorBoundary extends Component<Props> {
     if (this.state.errorInfo) {
       return (
         <>
-          <h1 className="error-boundary">{'Something went wrong'}</h1>
+          <h1 className={style.errorBoundary}>{'Something went wrong'}</h1>
           <button
-            className="error-boundary__back-button"
+            className={style.errorBoundaryButton}
             onClick={() => {
               this.setState({ ...this.initState });
             }}

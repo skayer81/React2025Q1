@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
-import { ErrorButton } from '../errorButton/errorButton';
+import { ErrorButton } from '../ErrorButton/ErrorButton';
 import { LocaleStorageAPI } from '../API/LocaleStorageAPI';
-import './searchForm.css';
+import style from './searchForm.module.css';
 
 interface Props {
   onClick: (value: string) => void;
@@ -36,13 +36,13 @@ export class SearchForm extends Component<Props> {
 
   render() {
     return (
-      <form className="form" onSubmit={this.onClick}>
-        <span className="form-title">search form: </span>
+      <form className={style.form} onSubmit={this.onClick}>
+        <span className={style.formTitle}>search form: </span>
         <input
           value={this.state.inputValue}
           onChange={this.onChange}
           placeholder="Enter a search term"
-          className="form-input"
+          className={style.formInput}
         />
         <button type="submit">{'Search'}</button>
         <ErrorButton />

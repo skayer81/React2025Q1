@@ -1,9 +1,9 @@
 import { PureComponent } from 'react';
-import { Card } from './card/card';
+import { Card } from './Card/Card';
 import { getAnimal, getAnimals } from '../API/StAPI';
 import { Animal } from '../interfaces/interfaces';
-import './searchResult.css';
-import { LoadingOverlay } from '../loadingOverlay/loadingOverlay';
+import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
+import style from './searchResult.module.css';
 
 interface Props {
   request?: string;
@@ -54,7 +54,7 @@ export class SearchResult extends PureComponent<Props, State> {
 
     return (
       <>
-        <section className="search-result">
+        <section className={style.searchResult}>
           <h2>{request ? 'Search result' : 'Full catalog'}</h2>
 
           {error && <p>{error}</p>}
@@ -62,7 +62,7 @@ export class SearchResult extends PureComponent<Props, State> {
             <p>nothing found</p>
           )}
           {searchResult && searchResult.length > 0 && (
-            <ul className="list-items">
+            <ul className={style.listItems}>
               {searchResult.map((animal, index) => (
                 <li key={animal.uid}>
                   <Card

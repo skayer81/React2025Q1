@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
-import { SearchForm } from './components/search/searchForm';
-import { SearchResult } from './components/searchResult/searchResult';
+import { SearchForm } from './components/SearchForm/SearchForm';
+import { SearchResult } from './components/SearchResult/SearchResult';
 import './App.css';
 
 export class App extends PureComponent {

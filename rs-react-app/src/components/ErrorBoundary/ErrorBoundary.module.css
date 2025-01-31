@@ -1,7 +1,7 @@
-.error-boundary {
+.errorBoundary {
   text-align: center;
 }
-.error-boundary__back-button {
+.errorBoundaryButton {
   display: block;
   margin: 0 auto;
 }
