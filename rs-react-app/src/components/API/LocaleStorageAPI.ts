@@ -6,8 +6,12 @@ export class LocaleStorageAPI {
   }
 
   loadRequest() {
-    const data = JSON.parse(localStorage.getItem(this.#FIELD_NAME) ?? '');
-    return data;
+    try {
+      const data = JSON.parse(localStorage.getItem(this.#FIELD_NAME) ?? '');
+      return data;
+    } catch {
+      return '';
+    }
   }
 
   hasSave() {
