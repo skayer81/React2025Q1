@@ -11,14 +11,14 @@ interface Props {
 
 interface State {
   searchResult: Array<Animal> | null;
-  loading: boolean;
+  isLoading: boolean;
   error: string | null;
 }
 
 export class SearchResult extends PureComponent<Props, State> {
   state: State = {
     searchResult: null,
-    loading: false,
+    isLoading: false,
     error: null,
   };
 
@@ -33,7 +33,7 @@ export class SearchResult extends PureComponent<Props, State> {
   }
 
   load = async () => {
-    this.setState({ loading: true, error: null });
+    this.setState({ isLoading: true, error: null });
     try {
       const res = this.props.request
         ? await getAnimal(this.props.request)
@@ -44,13 +44,13 @@ export class SearchResult extends PureComponent<Props, State> {
       this.setState({ error: 'Error loading data' });
       console.log(err);
     } finally {
-      this.setState({ loading: false });
+      this.setState({ isLoading: false });
     }
   };
 
   render() {
     const { request } = this.props;
-    const { searchResult, loading, error } = this.state;
+    const { searchResult, isLoading, error } = this.state;
 
     return (
       <>
@@ -58,7 +58,7 @@ export class SearchResult extends PureComponent<Props, State> {
           <h2>{request ? 'Search result' : 'Full catalog'}</h2>
 
           {error && <p>{error}</p>}
-          {!loading && searchResult && searchResult.length === 0 && (
+          {!isLoading && searchResult && searchResult.length === 0 && (
             <p>nothing found</p>
           )}
           {searchResult && searchResult.length > 0 && (
@@ -75,7 +75,7 @@ export class SearchResult extends PureComponent<Props, State> {
             </ul>
           )}
         </section>
-        <LoadingOverlay isLoading={this.state.loading} message="Loading..." />
+        <LoadingOverlay isLoading={this.state.isLoading} message="Loading..." />
       </>
     );
   }

@@ -7,7 +7,7 @@ export async function getAnimals() {
 }
 
 export async function getAnimal(name: string) {
-  const init = {
+  const init: RequestInit = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

@@ -8,7 +8,6 @@ interface Props {
 }
 
 export class SearchForm extends Component<Props> {
-  // ButtonText = 'Search';
   localeStorageAPI = new LocaleStorageAPI();
 
   state = {

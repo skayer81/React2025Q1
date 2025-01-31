@@ -9,5 +9,5 @@ export interface Animal {
 }
 
 export interface Animals {
-  Animals: Array<Animal>;
+  animals: Array<Animal>;
 }
