@@ -1,4 +1,4 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import style from './card.module.css';
 
 interface Props {
@@ -7,22 +7,22 @@ interface Props {
   index: number;
 }
 
-export class Card extends Component<Props> {
-  isEarthAnimalDescription = 'lives on Earth';
-  isNotEarthAnimalDescription = 'lives in a galaxy far, far away';
+export function Card(props: Props) {
+  const isEarthAnimalDescription = 'lives on Earth';
+  const isNotEarthAnimalDescription = 'lives in a galaxy far, far away';
 
-  render() {
-    return (
-      <article className={style.card}>
-        <p className={style.number}>Card № {this.props.index} </p>
-        <h3 className={style.title}>Name: {this.props.name}</h3>
-        <p>
-          Description:{' '}
-          {this.props.earthAnimal
-            ? this.isEarthAnimalDescription
-            : this.isNotEarthAnimalDescription}
-        </p>
-      </article>
-    );
-  }
+  // render() {
+  return (
+    <article className={style.card}>
+      <p className={style.number}>Card № {props.index} </p>
+      <h3 className={style.title}>Name: {props.name}</h3>
+      <p>
+        Description:{' '}
+        {props.earthAnimal
+          ? isEarthAnimalDescription
+          : isNotEarthAnimalDescription}
+      </p>
+    </article>
+  );
+  // }
 }

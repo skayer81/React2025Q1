@@ -7,4 +7,3 @@ Task description: <https://github.com/rolling-scopes-school/tasks/blob/master/re
 1. Clone the project with `git clone`
 2. Run `npm instal` to install dependencies
 3. Run `npm run dev` to start local development server
-
