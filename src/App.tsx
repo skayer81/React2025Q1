@@ -1,28 +1,31 @@
-import { PureComponent } from 'react';
+import { PureComponent, useState } from 'react';
 import { SearchForm } from './components/SearchForm/SearchForm';
 import { SearchResult } from './components/SearchResult/SearchResult';
 import './App.css';
 
-export class App extends PureComponent {
-  state = {
-    searchRequest: null,
+export function App () {
+
+  const [searchRequest, setSearchRequest] = useState<null | string>(null)
+  // state = {
+  //   searchRequest: null,
+  // };
+
+  const onClick = (value: string) => {
+    //this.setState({ searchRequest: value });
+    setSearchRequest(value);
   };
 
-  onClick = (value: string) => {
-    this.setState({ searchRequest: value });
-  };
-
-  render() {
+  // render() {
     return (
       <>
         <h1 className="header-title">Star Trek Animals</h1>
-        <SearchForm onClick={this.onClick} />
-        {this.state.searchRequest !== null ? (
-          <SearchResult request={this.state.searchRequest} />
+        <SearchForm onClick={onClick} />
+        {searchRequest !== null ? (
+          <SearchResult request={searchRequest} />
         ) : (
           ''
         )}
       </>
     );
-  }
+ // }
 }
