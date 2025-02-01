@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import style from './loadingOverlay.module.css';
 
 interface Props {
@@ -6,15 +5,13 @@ interface Props {
   message: string;
 }
 
-export class LoadingOverlay extends Component<Props> {
-  render() {
-    if (!this.props.isLoading) {
-      return null;
-    }
-    return (
-      <div className={style.overlay}>
-        <p>{this.props.message}</p>
-      </div>
-    );
+export function LoadingOverlay(props: Props) {
+  if (!props.isLoading) {
+    return null;
   }
+  return (
+    <div className={style.overlay}>
+      <p>{props.message}</p>
+    </div>
+  );
 }
