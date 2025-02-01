@@ -1,22 +1,22 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-export class ErrorButton extends Component {
-  state = {
-    isError: false,
+export function ErrorButton() {
+  const [isError, setIsError] = useState(false);
+  // state = {
+  //   isError: false,
+  // };
+
+  const onClick = () => {
+    //this.setState({ isError: true });
+    setIsError(true);
   };
 
-  onClick = () => {
-    this.setState({ isError: true });
-  };
-
-  render() {
-    if (this.state.isError) {
-      throw new Error('Something went wrong');
-    }
-    return (
-      <button onClick={this.onClick} type="button">
-        {'Create rendering error'}
-      </button>
-    );
+  if (isError) {
+    throw new Error('Something went wrong');
   }
+  return (
+    <button onClick={onClick} type="button">
+      {'Create rendering error'}
+    </button>
+  );
 }
