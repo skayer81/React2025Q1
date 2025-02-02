@@ -2,12 +2,8 @@ import { useState } from 'react';
 
 export function ErrorButton() {
   const [isError, setIsError] = useState(false);
-  // state = {
-  //   isError: false,
-  // };
 
   const onClick = () => {
-    //this.setState({ isError: true });
     setIsError(true);
   };
 

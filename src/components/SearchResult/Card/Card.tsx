@@ -1,4 +1,3 @@
-// import { Component } from 'react';
 import style from './card.module.css';
 
 interface Props {
@@ -11,7 +10,6 @@ export function Card(props: Props) {
   const isEarthAnimalDescription = 'lives on Earth';
   const isNotEarthAnimalDescription = 'lives in a galaxy far, far away';
 
-  // render() {
   return (
     <article className={style.card}>
       <p className={style.number}>Card № {props.index} </p>
@@ -24,5 +22,4 @@ export function Card(props: Props) {
       </p>
     </article>
   );
-  // }
 }

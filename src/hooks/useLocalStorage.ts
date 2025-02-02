@@ -27,34 +27,9 @@ export function useLocalStorage(): [string, (newRequest: string) => void] {
   }
 
   useEffect(() => {
-    // if (!hasSave()) return;
     const request = loadRequest();
     setData(request);
-    // const request = localeStorageAPI.loadRequest();
-    //  setInputValue(request);
-    //  props.onClick(request);
   }, [loadRequest]);
 
   return [request, saveData];
 }
-
-// export class LocaleStorageAPI {
-//   #FIELD_NAME = 'skayer81ReactLS';
-
-//   saveRequest(request: string) {
-//     localStorage.setItem(this.#FIELD_NAME, JSON.stringify(request));
-//   }
-
-//   loadRequest() {
-//     try {
-//       const data = JSON.parse(localStorage.getItem(this.#FIELD_NAME) ?? '');
-//       return data;
-//     } catch {
-//       return '';
-//     }
-//   }
-
-//   hasSave() {
-//     return localStorage.getItem(this.#FIELD_NAME) !== null;
-//   }
-// }
