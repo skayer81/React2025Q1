@@ -15,11 +15,11 @@ export class SearchForm extends Component<Props> {
   };
 
   componentDidMount() {
-    if (!this.localeStorageAPI.hasSave()) {
-      return;
+    let request = '';
+    if (this.localeStorageAPI.hasSave()) {
+      request = this.localeStorageAPI.loadRequest();
     }
 
-    const request = this.localeStorageAPI.loadRequest();
     this.setState({ inputValue: request });
     this.props.onClick(request);
   }
