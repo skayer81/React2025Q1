@@ -1,27 +1,45 @@
-//  import { Link, useParams } from 'react-router/dom';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
+//import { useQuery } from '@tanstack/react-query';
+import { getAnimalByID } from '../API/StAPI'; // { getA } from '../API';
+import { DetailedCard } from './DetailedCard/DetailedCard';
+import { useEffect, useState } from 'react';
 import { Animal } from '../interfaces/interfaces';
-import './DetailedCard.css';
+import { DetailedErrorCard } from './DetailedErrorCard/DetailedErrorCard';
 
-interface Props {
-  data: Animal;
-}
-
-export function AnimalPage(props: Props) {
+export function AnimalPage(): JSX.Element {
+  const { uid } = useParams();
+  // const { data, error, isPending } = useQuery({
+  //   queryKey: [uid],
+  //   queryFn: () => getAnimalByID(uid??''),
+  // });
   const { request, pageNumber } = useParams();
+  const [data, setData] = useState<{ animal: Animal } | null>(null);
+  const [isPending, setIsPending] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function getData() {
+      const data = await getAnimalByID(uid ?? '');
+      setData(data);
+      setIsPending(false);
+    }
+    getData();
+  }, [request, pageNumber, uid]);
+
+  if (isPending) {
+    return <div>Loading...</div>;
+  }
+
+  // if (error) {
+  //   return <div> `An error has occurred: ${error.message}`</div>;
+  // }
+
   return (
-    <article className="detailedCard">
-      <h2> Detailed Card</h2>
-      <p>name: {props.data.name}</p>
-      <p>avian: {props.data.avian ? 'yes' : 'no'}</p>
-      <p>canine: {props.data.canine ? 'yes' : 'no'}</p>
-      <p>earthAnimal: {props.data.earthAnimal ? 'yes' : 'no'}</p>
-      <p>earthInsect: {props.data.earthInsect ? 'yes' : 'no'}</p>
-      <p>feline: {props.data.feline ? 'yes' : 'no'}</p>
-      <p>id: {props.data.uid}</p>
-      <Link to={`/page${request ? '/' + request : ''}/${pageNumber}`}>
-        close
-      </Link>
-    </article>
+    <>
+      {data === null ? (
+        <DetailedErrorCard />
+      ) : (
+        <DetailedCard data={data.animal} />
+      )}
+    </>
   );
 }

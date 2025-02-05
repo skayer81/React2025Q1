@@ -18,7 +18,9 @@ export function Card(props: Props) {
     // <Link
     //   to={`/page${request ? '/' + request : ''}/${pageNumber}/animal/${uid}`}
     // >
-    <Link to={`/page${request ? '/' + request : ''}/${pageNumber}/animal/`}>
+    <Link
+      to={`/page${request ? '/' + request : ''}/${pageNumber}/animal/${props.uid}`}
+    >
       <article className={style.card}>
         <p className={style.number}>Card № {props.index} </p>
         <h3 className={style.title}>Name: {props.name}</h3>
