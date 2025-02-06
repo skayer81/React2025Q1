@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
 import { ErrorButton } from '../ErrorButton/ErrorButton';
 import { LocaleStorageAPI } from '../API/LocaleStorageAPI';
-import style from './searchForm.module.css';
+import style from './SearchForm.module.css';
 
 interface Props {
   onClick: (value: string) => void;

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import style from './card.module.css';
+import style from './Card.module.css';
 
 interface Props {
   name: string;

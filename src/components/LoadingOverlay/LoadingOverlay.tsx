@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import style from './loadingOverlay.module.css';
+import style from './LoadingOverlay.module.css';
 
 interface Props {
   isLoading: boolean;

@@ -3,7 +3,7 @@ import { Card } from './Card/Card';
 import { getAnimal, getAnimals } from '../API/StAPI';
 import { Animal } from '../interfaces/interfaces';
 import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
-import style from './searchResult.module.css';
+import style from './SearchResult.module.css';
 
 interface Props {
   request?: string;
