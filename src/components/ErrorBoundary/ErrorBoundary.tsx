@@ -1,26 +1,28 @@
-import { Component, ErrorInfo, JSX } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import style from './ErrorBoundary.module.css';
 
 interface Props {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
-export class ErrorBoundary extends Component<Props> {
-  initState = {
+interface State {
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
+}
+
+export class ErrorBoundary extends Component<Props, State> {
+  state: State = {
     error: null,
     errorInfo: null,
   };
 
-  state = {
-    ...this.initState,
-  };
-
-  componentDidCatch = (error: Error, errorInfo: ErrorInfo) => {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.log('componentDidCatch');
     this.setState({
       error: error,
       errorInfo: errorInfo,
     });
-  };
+  }
 
   render() {
     if (this.state.errorInfo) {
@@ -29,11 +31,9 @@ export class ErrorBoundary extends Component<Props> {
           <h1 className={style.errorBoundary}>{'Something went wrong'}</h1>
           <button
             className={style.errorBoundaryButton}
-            onClick={() => {
-              this.setState({ ...this.initState });
-            }}
+            onClick={() => this.setState({ error: null, errorInfo: null })}
           >
-            {'return everything as it was'}
+            {'Return everything as it was'}
           </button>
         </>
       );
