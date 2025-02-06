@@ -6,6 +6,7 @@ import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
 import style from './searchResult.module.css';
 import { Pagination } from '../Pagination/Pagination';
 import { useParams } from 'react-router';
+import { Outlet } from 'react-router';
 
 interface Props {
   request?: string;
@@ -93,6 +94,7 @@ export function SearchResult(props: Props) {
           request={request ?? ''}
         />
       </section>
+      <Outlet />
       <LoadingOverlay isLoading={isLoading} message="Loading..." />
     </>
   );

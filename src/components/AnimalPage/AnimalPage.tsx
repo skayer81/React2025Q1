@@ -16,6 +16,8 @@ export function AnimalPage(): JSX.Element {
   const [data, setData] = useState<{ animal: Animal } | null>(null);
   const [isPending, setIsPending] = useState<boolean>(true);
 
+  console.log('AnimalPage');
+
   useEffect(() => {
     async function getData() {
       const data = await getAnimalByID(uid ?? '');
