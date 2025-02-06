@@ -10,6 +10,7 @@ export function ErrorButton() {
   if (isError) {
     throw new Error('Something went wrong');
   }
+
   return (
     <button onClick={onClick} type="button">
       {'Create rendering error'}
