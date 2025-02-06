@@ -2,35 +2,35 @@ import { MemoryRouter } from 'react-router';
 
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 import { DetailedCard } from './DetailedCard';
 import { Animal } from '../../interfaces/interfaces'; //{ Animal } from '../interfaces/interfaces';
 
-const testData1: Animal={
-    avian: true,
-    canine: true,
-    earthAnimal: true,
-    earthInsect: true,
-    feline: true,
-    name: 'test name',
-    uid: 'testid'
-}
+const testData1: Animal = {
+  avian: true,
+  canine: true,
+  earthAnimal: true,
+  earthInsect: true,
+  feline: true,
+  name: 'test name',
+  uid: 'testid',
+};
 
-const testData2: Animal={
-    avian: false,
-    canine: false,
-    earthAnimal: false,
-    earthInsect: false,
-    feline: false,
-    name: 'test name2',
-    uid: 'testid2'
-}
+const testData2: Animal = {
+  avian: false,
+  canine: false,
+  earthAnimal: false,
+  earthInsect: false,
+  feline: false,
+  name: 'test name2',
+  uid: 'testid2',
+};
 
 describe('DetailedCard', () => {
   it('should render', () => {
     render(
       <MemoryRouter>
-        <DetailedCard data={testData1}/>
+        <DetailedCard data={testData1} />
       </MemoryRouter>
     );
     const CardText = screen.getByText('Detailed Card');
@@ -45,7 +45,7 @@ describe('DetailedCard', () => {
   it('should render', () => {
     render(
       <MemoryRouter>
-        <DetailedCard data={testData2}/>
+        <DetailedCard data={testData2} />
       </MemoryRouter>
     );
     const CardText = screen.getByText('Detailed Card');

@@ -8,7 +8,6 @@ import { RouterProvider } from 'react-router/dom';
 import { createHashRouter, Navigate } from 'react-router';
 import { ErrorPage404 } from './components/ErrorPage404/ErrorPage404.tsx';
 import { AnimalPage } from './components/AnimalPage/AnimalPage';
-import { ErrorButton } from './components/ErrorButton/ErrorButton.tsx';
 //import { AnimalPage } from './components/AnimalPage/AnimalPage';
 
 const root = document.createElement('div');
@@ -42,10 +41,9 @@ const router = createHashRouter([
         path: '/page/:pageNumber',
         element: (
           <ErrorBoundary>
-          <App />
+            <App />
           </ErrorBoundary>
-        )
-         ,
+        ),
         children: [
           {
             path: '/page/:pageNumber/animal/:uid',
@@ -63,6 +61,6 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
