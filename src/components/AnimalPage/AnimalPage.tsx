@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 //import { useQuery } from '@tanstack/react-query';
-import { getAnimalByID } from '../API/StAPI'; // { getA } from '../API';
+import { getAnimalByID } from '../API/StAPI.ts'; // { getA } from '../API';
 import { DetailedCard } from './DetailedCard/DetailedCard';
 import { useEffect, useState } from 'react';
 import { Animal } from '../interfaces/interfaces';

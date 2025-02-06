@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Card } from './Card/Card';
-import { getSearchAnimals } from '../API/StAPI';
+import { getSearchAnimals } from '../API/StAPI.ts';
 import { Animal, Data } from '../interfaces/interfaces';
 import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
 import style from './searchResult.module.css';
