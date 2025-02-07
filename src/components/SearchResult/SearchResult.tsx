@@ -5,7 +5,7 @@ import { Animal, Data } from '../interfaces/interfaces';
 import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
 import style from './searchResult.module.css';
 import { Pagination } from '../Pagination/Pagination';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { Outlet } from 'react-router';
 
 interface Props {
@@ -39,7 +39,10 @@ export function SearchResult(props: Props) {
 
   return (
     <>
-      <section className={style.searchResult}>
+      <Link
+        className={style.searchResult}
+        to={`/page${request ? '/' + request : ''}/${pageNumber}`}
+      >
         <h2>{request ? 'Search result' : 'Full catalog'}</h2>
 
         {error && <p>{error}</p>}
@@ -56,7 +59,6 @@ export function SearchResult(props: Props) {
                         uid={animal.uid}
                         earthAnimal={animal.earthAnimal}
                       />
-                      ;
                     </li>
                   ))}
             </ul>
@@ -73,7 +75,7 @@ export function SearchResult(props: Props) {
           }
           request={request ?? ''}
         />
-      </section>
+      </Link>
       <LoadingOverlay isLoading={isLoading} message="Loading..." />
     </>
   );
