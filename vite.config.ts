@@ -15,7 +15,6 @@ export default defineConfig({
         '**/interfaces.ts',
         '**/*.d.ts',
         '**/index.ts',
-        'src/App.tsx',
         'src/config/**/*',
         'src/**/*/enums.ts',
         'src/setupTest.ts',

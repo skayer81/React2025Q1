@@ -58,8 +58,9 @@ export function SearchResult(props: Props) {
           <p>nothing found</p>
         )} */}
         {data?.animals && data.animals.length > 0 && (
-          <ul className={style.listItems}>
-            {/* {searchResult.map((animal, index) => (
+          <div className={style.contentContainer}>
+            <ul className={style.listItems}>
+              {/* {searchResult.map((animal, index) => (
               <li key={animal.uid}>
                 <Card
                   index={index + 1}
@@ -68,20 +69,22 @@ export function SearchResult(props: Props) {
                 />
               </li>
             ))} */}
-            {data === null || data.animals.length === 0
-              ? 'Nothing found'
-              : data.animals.map((animal: Animal, index: number) => (
-                  <li key={animal.uid}>
-                    <Card
-                      index={index + 1}
-                      name={animal.name}
-                      uid={animal.uid}
-                      earthAnimal={animal.earthAnimal}
-                    />
-                    ;
-                  </li>
-                ))}
-          </ul>
+              {data === null || data.animals.length === 0
+                ? 'Nothing found'
+                : data.animals.map((animal: Animal, index: number) => (
+                    <li key={animal.uid}>
+                      <Card
+                        index={index + 1}
+                        name={animal.name}
+                        uid={animal.uid}
+                        earthAnimal={animal.earthAnimal}
+                      />
+                      ;
+                    </li>
+                  ))}
+            </ul>
+            <Outlet />
+          </div>
         )}
 
         <Pagination
@@ -94,7 +97,6 @@ export function SearchResult(props: Props) {
           request={request ?? ''}
         />
       </section>
-      <Outlet />
       <LoadingOverlay isLoading={isLoading} message="Loading..." />
     </>
   );
