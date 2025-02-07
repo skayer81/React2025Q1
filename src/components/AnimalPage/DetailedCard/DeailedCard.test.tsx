@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom';
 import { DetailedCard } from './DetailedCard';
-import { Animal } from '../../interfaces/interfaces'; //{ Animal } from '../interfaces/interfaces';
+import { Animal } from '../../interfaces/interfaces';
 
 const testData1: Animal = {
   avian: true,

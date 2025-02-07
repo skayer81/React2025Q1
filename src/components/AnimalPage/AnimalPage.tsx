@@ -1,6 +1,5 @@
 import { useParams } from 'react-router';
-//import { useQuery } from '@tanstack/react-query';
-import { getAnimalByID } from '../API/StAPI.ts'; // { getA } from '../API';
+import { getAnimalByID } from '../API/StAPI.ts';
 import { DetailedCard } from './DetailedCard/DetailedCard';
 import { useEffect, useState } from 'react';
 import { Animal } from '../interfaces/interfaces';
@@ -8,10 +7,6 @@ import { DetailedErrorCard } from './DetailedErrorCard/DetailedErrorCard';
 
 export function AnimalPage(): JSX.Element {
   const { uid } = useParams();
-  // const { data, error, isPending } = useQuery({
-  //   queryKey: [uid],
-  //   queryFn: () => getAnimalByID(uid??''),
-  // });
   const { request, pageNumber } = useParams();
   const [data, setData] = useState<{ animal: Animal } | null>(null);
   const [isPending, setIsPending] = useState<boolean>(true);
@@ -30,10 +25,6 @@ export function AnimalPage(): JSX.Element {
   if (isPending) {
     return <div>Loading...</div>;
   }
-
-  // if (error) {
-  //   return <div> `An error has occurred: ${error.message}`</div>;
-  // }
 
   return (
     <>

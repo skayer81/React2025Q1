@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router';
 import { Animal } from '../../interfaces/interfaces';
-//import './DetailedCard.css';
 
 interface Props {
   data: Animal;
