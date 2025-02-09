@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid blue;
+  border-radius: 20px;
+  width: 200px;
+  height: 160px;
+  padding: 10px;
+  background-color: #1a1a1a;
+  transition: transform 0.2s;
+  .number,
+  .title {
+    font-size: 17px;
+    margin: 0;
+    color: #fff;
+  }
+}
+.card:hover {
+  transform: scale(1.05);
+}
