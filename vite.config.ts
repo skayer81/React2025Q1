@@ -18,7 +18,7 @@ export default defineConfig({
         'src/config/**/*',
         'src/**/*/enums.ts',
         'src/setupTest.ts',
-        // 'src/**/*/*.test.tsx',
+        'src/main.tsx',
         '**/*.test.tsx',
         '**/*.test.ts',
       ],
